@@ -1,11 +1,10 @@
 // lib/shop_details_screen.dart
 import 'package:flutter/material.dart';
-import 'product_details_screen.dart';
 
 class ShopDetailsScreen extends StatelessWidget {
   final Map<String, dynamic> mall;
 
-  ShopDetailsScreen({required this.mall});
+  const ShopDetailsScreen({super.key, required this.mall});
 
   @override
   Widget build(BuildContext context) {

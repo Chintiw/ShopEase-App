@@ -12,7 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flutter_barcode_scanner: ^2.0.0 # Or the latest version
+  mobile_scanner: 6.0.7 # Use the latest version available on pub.dev
+  qr_flutter: ^4.1.0 # Use the latest version available on pub.dev
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
@@ -21,6 +23,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

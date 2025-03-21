@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'shop_details_screen.dart';
+import 'shop_details_screen.dart'; // Ensure this import exists
 
-// ... (SearchMallsScreen code remains the same)
 class SearchMallsScreen extends StatefulWidget {
+  const SearchMallsScreen({super.key});
+
   @override
   _SearchMallsScreenState createState() => _SearchMallsScreenState();
 }
@@ -36,42 +37,27 @@ class _SearchMallsScreenState extends State<SearchMallsScreen> {
     },
   ];
 
-  List<Map<String, dynamic>> filteredMalls = [];
   TextEditingController searchController = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
-    filteredMalls = List.from(malls);
-  }
-
-  void _filterMalls(String query) {
-    setState(() {
-      if (query.isEmpty) {
-        filteredMalls = List.from(malls);
-      } else {
-        filteredMalls = malls
-            .where(
-              (mall) =>
-                  mall['name']!.toLowerCase().contains(query.toLowerCase()),
-            )
-            .toList();
-      }
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final String query = searchController.text.toLowerCase();
+    final List<Map<String, dynamic>> filteredMalls = malls.where((mall) {
+      return mall['name']!.toLowerCase().contains(query);
+    }).toList();
+
     return Scaffold(
-      appBar: AppBar(title: Text('Search Malls')),
+      appBar: AppBar(title: const Text('Search Malls')),
       body: Column(
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               controller: searchController,
-              onChanged: _filterMalls,
-              decoration: InputDecoration(
+              onChanged: (value) {
+                setState(() {}); // Trigger a rebuild to update the filtered list
+              },
+              decoration: const InputDecoration(
                 labelText: 'Search',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
