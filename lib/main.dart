@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'search_malls_screen.dart';
 import 'shop_details_screen.dart'; // Ensure this import exists
-import 'product_details_screen.dart'; // Import the product details screen
+import 'product_details_screen.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
