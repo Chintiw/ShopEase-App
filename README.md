@@ -1,4 +1,4 @@
-# mall_app
+# ShopEase
 
 A new Flutter project.
 
